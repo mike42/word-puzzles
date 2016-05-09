@@ -1,5 +1,5 @@
 #!/usr/bin/php
-<? /* Script to render *massive* find-a-words by sub-blocking */
+<?php /* Script to render *massive* find-a-words by sub-blocking */
 require_once("common/find-a-word.php");
 $find_a_word = new cls_find_a_word();
 $req_lang     = "en";

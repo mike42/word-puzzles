@@ -1,4 +1,4 @@
-<?
+<?php
 require_once("common/cipher.php");
 require_once("common/find-a-word.php");
 $cipher = new cls_cipher;

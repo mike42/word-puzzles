@@ -1,4 +1,4 @@
-<?
+<?php
 require_once("common/scramble.php");
 require_once("common/find-a-word.php");
 $scramble = new cls_scrambler;

@@ -1,4 +1,4 @@
-<?
+<?php
 /* Quick class for encoding words with a cipher */
 
 /* As these puzzles are designed to be solved by schoolchildren,

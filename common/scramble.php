@@ -1,4 +1,4 @@
-<?
+<?php
 /* Quick class for scrambling words */
 
 class cls_scrambler {

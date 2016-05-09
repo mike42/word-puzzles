@@ -1,4 +1,4 @@
-<?
+<?php
 require_once("common/find-a-word.php");
 header("Content-Type: text/html; charset=utf-8;");
 $find_a_word = new cls_find_a_word();

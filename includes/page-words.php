@@ -1,15 +1,15 @@
-	<h2><? echo htmlspecialchars($page_title); ?></h2>
-<?	if($req_word_source == "dict") {
+	<h2><?php echo htmlspecialchars($page_title); ?></h2>
+<?php	if($req_word_source == "dict") {
 		echo "<p>Please check this list of words. These are from an <b>".$fw_lang[$req_lang] -> name."</b> dictionary.</p>";
 	} else {
 		echo "<p>Please enter the list of words below, one per line:</p>";
 	} ?>
 		<form action="index.php" method="post">
 			<div style="width: 18em; text-align: right;">
-				<textarea cols=35 rows=20 name="word_list"><? echo htmlspecialchars($word_list_str); ?></textarea>
+				<textarea cols=35 rows=20 name="word_list"><?php echo htmlspecialchars($word_list_str); ?></textarea>
 				<input type="submit" name="submit" value="Make puzzle" />
 			</div>
-			<?  echo field("width", $req_width);
+			<?php echo field("width", $req_width);
 				echo field("height", $req_height);
 				echo field("lang", $req_lang);
 				echo field("diagonal", $req_diagonal);
@@ -19,6 +19,6 @@
 				if($req_slow) { echo field("slow", 1); } ?>
 		</form>
 
-<?function field($field, $value) {
+<?php function field($field, $value) {
 	return "<input type=\"hidden\" name=\"$field\" value=\"".htmlspecialchars($value)."\" />";
 }?>

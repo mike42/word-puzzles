@@ -2,14 +2,14 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title><? echo htmlspecialchars($page_title); ?></title>
+		<title><?php echo htmlspecialchars($page_title); ?></title>
 		<script type="text/javascript" src="style/script.js"></script>
 		<link rel="stylesheet" href="style/style.css">
 	</head>
 	<body>
 	<div class="container-panel">
 		<div class="left-panel">
-		<?
+		<?php
 			$fw = new cls_find_a_word;
 
 			if($page_gen_left) {
@@ -31,7 +31,7 @@
 			<li><a href="cipher.php">Cipher</a></li>
 			<li><a href="index.php?action=info">Info</a></li></ul>
 		</center>
-		</div><div class="right-panel"><? include("page-".$page_script.".php"); ?>
+		</div><div class="right-panel"><?php include("page-".$page_script.".php"); ?>
 		</div>
 	</div>
 	</body>

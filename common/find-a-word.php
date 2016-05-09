@@ -1,4 +1,4 @@
-<?
+<?php
 /* Generalised, configurable find-a-word class. */
 
 /* English */

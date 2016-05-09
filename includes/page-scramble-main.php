@@ -1,35 +1,35 @@
-	<h2><? echo htmlspecialchars($page_title); ?></h2>
+	<h2><?php echo htmlspecialchars($page_title); ?></h2>
 	<form action="scramble.php" method="post">
 		<p>This is a <b>word scrambler</b>, which will randomly re-arrange words for use in puzzles.</p>
 
 		<p>I want to scramble:</p>
-		<? for($i = $scramble -> c_min_words; $i <= $scramble -> c_max_words; $i++) { /* Contents of word select box */
+		<?php for($i = $scramble -> c_min_words; $i <= $scramble -> c_max_words; $i++) { /* Contents of word select box */
 			$sel_words[$i] = $i;
 		} ?>
 		<ul class="radio-list">
-			<? echo select("word_count", $sel_words, 10); ?> words.
+			<?php echo select("word_count", $sel_words, 10); ?> words.
 		</ul>
 		
 		<p>The words will come from:</p>
 		<ul class="radio-list">
-			<? unset($nums);
+			<?php unset($nums);
 			for($i = 1; $i < 250; $i++) {
 				$nums[$i] = $i;
 			}?>
-			<li><? echo radio("word_source", "dict",		"The dictionary <i>(default)</i>", 1);?></li>
-			<li><? echo radio("word_source", "list","I will type in a list of words", 0);?></li>
+			<li><?php echo radio("word_source", "dict",		"The dictionary <i>(default)</i>", 1);?></li>
+			<li><?php echo radio("word_source", "list","I will type in a list of words", 0);?></li>
 		</ul>
 	
 		<p>Please select language:</p>
-		<?	foreach($fw_lang as $lang) {
+		<?php	foreach($fw_lang as $lang) {
 			$sel_lang[$lang -> code] = $lang -> name;
 		} ?>
 		<ul class="radio-list">
-			<li><? echo select("lang", $sel_lang, 'en'); ?>
+			<li><?php echo select("lang", $sel_lang, 'en'); ?>
 		</ul>
 		<p><input type="submit" name="submit" value="Next step" /></p>
 	</form>
-<? function radio($field, $value, $caption, $selected = 0) {
+<?php function radio($field, $value, $caption, $selected = 0) {
 	static $count = 0;
 	$id = $field.$count++;
 	if($selected) { $checked = " checked=\"checked\"";  } else { $checked = ""; }	
