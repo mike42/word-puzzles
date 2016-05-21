@@ -14,7 +14,7 @@ A live version of this code runs at [https://mike42.me/words/](https://mike42.me
 
 Simply copy the application to your PHP-enabled webserver to install it.
 
-PHP versions from 5.3-7 are supported.
+PHP versions from 5.6 up are supported.
 
 ## Development
 
