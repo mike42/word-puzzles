@@ -1,0 +1,19 @@
+language: php
+
+php:
+  - 5.6
+  - 7.0
+  - hhvm
+  - nightly
+
+matrix:
+  allow_failures:
+    - php: nightly
+
+script:
+  - php vendor/bin/phpcs -n --standard=psr2 cli/ src/ includes/ *.php
+  #- php vendor/bin/phpunit --coverage-text
+
+install:
+  - composer install
+

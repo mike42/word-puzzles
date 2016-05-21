@@ -1,0 +1,8 @@
+# Composer stuff
+vendor/*
+
+# Eclipse stuff
+.buildpath
+.project
+.settings/*
+

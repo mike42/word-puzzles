@@ -1,0 +1,12 @@
+{
+    "require-dev": {
+        "squizlabs/php_codesniffer": "2.*",
+        "phpunit/phpunit": "^5.3"
+    },
+    "autoload": {
+		    "psr-4": {
+            "Mike42\\WordPuzzles\\": "src"
+        }
+	}
+}
+
