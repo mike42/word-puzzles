@@ -1,27 +1,11 @@
 <?php
+
+namespace Mike42\WordPuzzles;
+
 /* Generalised, configurable find-a-word class. */
 
-/* English */
-$fw_lang['en'] = new cls_find_a_word_lang;
-$fw_lang['en'] -> code = "en";
-$fw_lang['en'] -> name = "English (United States)";
-$fw_lang['en'] -> alphabet = array(     "A", "B", "C", "D", "E", "F", "G", "H", "I",
-                                    "J", "K", "L", "M", "N", "O", "P", "Q", "R",
-                                    "S", "T", "U", "V", "W", "X", "Y", "Z");
-$fw_lang['en'] -> dict_path         = "common/dict/en-us.txt";
-$fw_lang['en'] -> dict_cache_path   = "common/dict/en-us.cache.txt";
-
-/* Samoan */
-$fw_lang['sm'] = new cls_find_a_word_lang;
-$fw_lang['sm'] -> code = "sm";
-$fw_lang['sm'] -> name = "Samoan";
-$fw_lang['sm'] -> alphabet = array(     "A", "E", "I", "O", "U", "F", "G", "L", "M",
-                                    "N", "P", "S", "T", "V", "H", "K", "R");
-$fw_lang['sm'] -> dict_path         = "common/dict/sm.txt";
-$fw_lang['sm'] -> dict_cache_path   = "common/dict/sm.cache.txt";
-
 /* Class for generating find-a-words */
-class cls_find_a_word
+class FindAWord
 {
     /* Configuration options. These may be over-ridden by CLI, but the web interface wont touch them. */
     public $c_min_size   = 5;  /* Min and max dimensions of a board */
@@ -51,7 +35,7 @@ class cls_find_a_word
     /* Load the dictionary for a language */
     function load_dictionary($lang_code)
     {
-        global $fw_lang;
+        $fw_lang = self::supported_languages();
         $start_time = microtime(true);
 
         /* First check that the language code exists */
@@ -174,7 +158,7 @@ class cls_find_a_word
     /* The main show: Generate a find-a-word */
     function calculate($lang_code)
     {
-        global $fw_lang;
+        $fw_lang = self::supported_languages();
         $abort = false;
         $start_time = microtime(true);
 
@@ -465,6 +449,29 @@ class cls_find_a_word
             $res .= mb_substr($str, (mb_strlen($str) - 1 - $i), 1);
         }
         return $res;
+    }
+    
+    static function supported_languages()
+    {
+        /* English */
+        $fw_lang['en'] = new cls_find_a_word_lang();
+        $fw_lang['en'] -> code = "en";
+        $fw_lang['en'] -> name = "English (United States)";
+        $fw_lang['en'] -> alphabet = array(     "A", "B", "C", "D", "E", "F", "G", "H", "I",
+            "J", "K", "L", "M", "N", "O", "P", "Q", "R",
+            "S", "T", "U", "V", "W", "X", "Y", "Z");
+        $fw_lang['en'] -> dict_path         = "src/dict/en-us.txt";
+        $fw_lang['en'] -> dict_cache_path   = "src/dict/en-us.cache.txt";
+        
+        /* Samoan */
+        $fw_lang['sm'] = new cls_find_a_word_lang();
+        $fw_lang['sm'] -> code = "sm";
+        $fw_lang['sm'] -> name = "Samoan";
+        $fw_lang['sm'] -> alphabet = array(     "A", "E", "I", "O", "U", "F", "G", "L", "M",
+            "N", "P", "S", "T", "V", "H", "K", "R");
+        $fw_lang['sm'] -> dict_path         = "src/dict/sm.txt";
+        $fw_lang['sm'] -> dict_cache_path   = "src/dict/sm.cache.txt";
+        return  $fw_lang;
     }
 }
 

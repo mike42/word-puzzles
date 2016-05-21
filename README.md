@@ -12,9 +12,11 @@ A live version of this code runs at [https://mike42.me/words/](https://mike42.me
 
 ## Installation
 
-Simply copy the application to your PHP-enabled webserver to install it.
+PHP versions from 5.6 up are supported. Simply copy the application to your PHP-enabled webserver, and set up the autoloader via `composer`.
 
-PHP versions from 5.6 up are supported.
+```bash
+composer install --no-dev
+```
 
 ## Development
 
@@ -29,6 +31,6 @@ composer install
 ### Style check
 
 ```
-php vendor/bin/phpcs --standard=psr2 cli/ common/ includes/
+php vendor/bin/phpcs -n --standard=psr2 cli/ src/ includes/ *.php
 ```
 

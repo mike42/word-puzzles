@@ -9,9 +9,13 @@
 
         <p>Please select puzzle language:</p>
         <ul class="radio-list">
-            <?php	foreach ($fw_lang as $lang) {
+            <?php
+            use Mike42\WordPuzzles\FindAWord;
+
+            $fw_lang = FindAWord::supported_languages();
+            foreach ($fw_lang as $lang) {
                 $sel_lang[$lang -> code] = $lang -> name;
-} ?>
+            } ?>
             <ul class="radio-list">
                 <li><?php echo select("lang", $sel_lang, 'en'); ?>
             </ul>

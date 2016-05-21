@@ -11,7 +11,7 @@ matrix:
     - php: nightly
 
 script:
-  #- php vendor/bin/phpcs -n --standard=psr2 cli/ common/ includes/ *.php
+  #- php vendor/bin/phpcs -n --standard=psr2 cli/ src/ includes/ *.php
   #- php vendor/bin/phpunit --coverage-text
   - find  . -name '*.php' ! -path './vendor/*' -print0 | xargs -0 -n 1 php -l
 

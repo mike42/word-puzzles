@@ -1,6 +1,6 @@
 #!/usr/bin/php
 <?php /* Script to render *massive* find-a-words by sub-blocking */
-require_once("common/find-a-word.php");
+require_once("src/FindAWord.php");
 $find_a_word = new cls_find_a_word();
 $req_lang     = "en";
 $req_width    = 30;

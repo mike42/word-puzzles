@@ -1,8 +1,13 @@
+<?php
+require_once("vendor/autoload.php");
+use Mike42\WordPuzzles\FindAWord;
+
+?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title><?php echo htmlspecialchars($page_title); ?></title>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title><?php echo htmlspecialchars($page_title); ?></title>
         <script type="text/javascript" src="style/script.js"></script>
         <link rel="stylesheet" href="style/style.css">
     </head>
@@ -10,7 +15,7 @@
     <div class="container-panel">
         <div class="left-panel">
         <?php
-            $fw = new cls_find_a_word;
+        $fw = new FindAWord();
 
         if ($page_gen_left) {
             $fw -> load_words(array("search", "word", "puzzle", "michael", "find"), 0);

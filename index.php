@@ -1,7 +1,9 @@
 <?php
-require_once("common/find-a-word.php");
+require_once("vendor/autoload.php");
+use Mike42\WordPuzzles\FindAWord;
+
 header("Content-Type: text/html; charset=utf-8;");
-$find_a_word = new cls_find_a_word();
+$find_a_word = new FindAWord();
 
 /* Look at the information, validate, and decide on what to do */
 if (has('submit')) { /* Everything which involves a submit */

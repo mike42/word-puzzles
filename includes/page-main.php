@@ -28,9 +28,13 @@ for ($i = $find_a_word -> c_min_size; $i <= $find_a_word -> c_max_size; $i++) { 
             </div>
             <div id="more-options" class="hidden">
                 <p>Word search language:</p>
-                <?php	foreach ($fw_lang as $lang) {
+                <?php
+                use Mike42\WordPuzzles\FindAWord;
+
+                $fw_lang = FindAWord::supported_languages();
+                foreach ($fw_lang as $lang) {
                         $sel_lang[$lang -> code] = $lang -> name;
-} ?>
+                } ?>
                 <ul class="radio-list">
                     <li><?php echo select("lang", $sel_lang, 'en'); ?>
                 </ul>

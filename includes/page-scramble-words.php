@@ -1,5 +1,9 @@
 	<h2><?php echo htmlspecialchars($page_title); ?></h2>
-<?php	if ($req_word_source == "dict") {
+<?php
+use Mike42\WordPuzzles\FindAWord;
+
+if ($req_word_source == "dict") {
+        $fw_lang = FindAWord::supported_languages();
         echo "<p>Please check this list of words. These are from an <b>".$fw_lang[$req_lang] -> name."</b> dictionary.</p>";
 } else {
     echo "<p>Please enter the list of words below, one per line:</p>";

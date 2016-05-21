@@ -21,8 +21,12 @@
         </ul>
     
         <p>Please select language:</p>
-        <?php	foreach ($fw_lang as $lang) {
-            $sel_lang[$lang -> code] = $lang -> name;
+<?php
+use Mike42\WordPuzzles\FindAWord;
+
+$fw_lang = FindAWord::supported_languages();
+foreach ($fw_lang as $lang) {
+    $sel_lang[$lang -> code] = $lang -> name;
 } ?>
         <ul class="radio-list">
             <li><?php echo select("lang", $sel_lang, 'en'); ?>

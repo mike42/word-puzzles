@@ -1,7 +1,9 @@
 <?php
-require_once("common/cipher.php");
-require_once("common/find-a-word.php");
-$cipher = new cls_cipher;
+require_once("vendor/autoload.php");
+use Mike42\WordPuzzles\Cipher;
+use Mike42\WordPuzzles\FindAWord;
+
+$cipher = new Cipher;
 
 /* Interface here largely copied from from index.php */
 if (has('submit')) {
@@ -23,6 +25,7 @@ if (has('submit')) {
         }
 
         $req_lang= take('lang');
+        $fw_lang = FindAWord::supported_languages();
         if (!isset($fw_lang[$req_lang])) {
             die("Couldn't find that language!");
         }

@@ -4,7 +4,9 @@
 /* As these puzzles are designed to be solved by schoolchildren,
 		I would like to make it clear here that this is not to be used for anything even remotely secret! */
 
-class cls_cipher
+namespace Mike42\WordPuzzles;
+
+class Cipher
 {
     public $c_max_len = 65536;
     public $lang  = "";

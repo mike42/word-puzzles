@@ -1,7 +1,9 @@
 <?php
-require_once("common/scramble.php");
-require_once("common/find-a-word.php");
-$scramble = new cls_scrambler;
+require_once("vendor/autoload.php");
+use Mike42\WordPuzzles\Scrambler;
+use Mike42\WordPuzzles\FindAWord;
+
+$scramble = new Scrambler;
 
 /* Interface here largely copied from from index.php */
 if (has('submit')) {
@@ -46,7 +48,7 @@ switch ($do) {
         break;
     case "words":
         /* Use find-a-word dict code */
-        $find_a_word = new cls_find_a_word;
+        $find_a_word = new FindAWord();
         if ($req_word_source == "dict") {
             if (!$find_a_word -> load_dictionary($req_lang)) { /* Load dictionary */
                 die("Could not load the dictionary for that language.");

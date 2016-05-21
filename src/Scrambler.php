@@ -1,7 +1,9 @@
 <?php
 /* Quick class for scrambling words */
 
-class cls_scrambler
+namespace Mike42\WordPuzzles;
+
+class Scrambler
 {
     public $c_min_words = 1;
     public $c_max_words = 249;
