@@ -10,10 +10,10 @@
     <?php
     echo "<table><tr><td valign=\"top\" style=\"padding:1em\">";
     echo "<div id=\"solution\" class=\"hidden\">";
-    echo $find_a_word -> outp_table_key();
+    echo $find_a_word -> outpTableKey();
     echo "</div>";
     echo "<div id=\"solution-sub\">";
-    echo $find_a_word -> outp_table($find_a_word -> puzzle);
+    echo $find_a_word -> outpTable($find_a_word -> puzzle);
     echo "</div>";
     echo "</td><td><ul class=\"word-list\">";
     foreach ($find_a_word -> words as $word) {

@@ -80,12 +80,12 @@ switch ($do) {
         break;
     case "words":
         if ($req_word_source == "dict") {
-            if (!$find_a_word -> load_dictionary($req_lang)) { /* Load dictionary */
+            if (!$find_a_word -> loadDictionary($req_lang)) { /* Load dictionary */
                 die("Could not load the dictionary for that language.");
             }
-            $find_a_word -> load_words(null, $req_word_count);
+            $find_a_word -> loadWords(null, $req_word_count);
         } else {
-            $find_a_word -> load_words(array(), 0);
+            $find_a_word -> loadWords(array(), 0);
         }
         $word_list_str = join("\n", $find_a_word -> words);
         $page_script = "words";
@@ -112,7 +112,7 @@ switch ($do) {
         $find_a_word -> height   = $req_height;
         $find_a_word -> diagonal = $req_diagonal;
         $find_a_word -> reverse  = $req_reverse;
-        $find_a_word -> load_words($req_word_list_arr, 0);
+        $find_a_word -> loadWords($req_word_list_arr, 0);
         $find_a_word -> calculate($req_lang);
         $page_script   = "generate";
         $page_gen_left = false; /* Working too hard for silliness */

@@ -18,15 +18,15 @@ use Mike42\WordPuzzles\FindAWord;
         $fw = new FindAWord();
 
         if ($page_gen_left) {
-            $fw -> load_words(array("search", "word", "puzzle", "michael", "find"), 0);
+            $fw -> loadWords(array("search", "word", "puzzle", "michael", "find"), 0);
         } else {
-            $fw -> load_words(array(), 0);
+            $fw -> loadWords(array(), 0);
         }
             $fw -> width   = 10;
             $fw -> height  = 10;
             $fw -> reverse = "never";
             $fw -> calculate('en');
-            echo $fw -> outp_table_key();
+            echo $fw -> outpTableKey();
             unset($fw);
         ?>
         <center>

@@ -2,10 +2,10 @@
 <p>Solve this cryptogram:</p>
 <table><tr><td>
 <?php	echo "<div id=\"solution\" class=\"hidden\">";
-    echo $cipher -> outp_html(true);
+    echo $cipher -> outpHtml(true);
     echo "</div>";
     echo "<div id=\"solution-sub\">";
-    echo $cipher -> outp_html(false);
+    echo $cipher -> outpHtml(false);
     echo "</div>";  ?>
 </td></tr><tr><td>
     <form action="cipher.php" method="post">

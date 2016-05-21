@@ -12,7 +12,7 @@ class Scrambler
     public $words     = array();  /* List of words to work with */
     public $scrambled = array(); /* Assoc. array of scrambled words */
 
-    function scramble($words = array())
+    public function scramble($words = array())
     {
         $this -> words = $words;
         $words = $this -> unsort($words);
@@ -39,7 +39,7 @@ class Scrambler
     }
 
     /* Place an array in random order (wrecks keys!) */
-    function unsort($array)
+    protected function unsort($array)
     {
         foreach ($array as $item) {
             /* Randomly choose a numeric ID */
@@ -55,7 +55,7 @@ class Scrambler
         return $rand;
     }
 
-    function outp_solution()
+    public function outpSolution()
     {
         $str = "<table>\n";
         $i = 0;
@@ -81,7 +81,7 @@ class Scrambler
         return $str;
     }
 
-    function outp_problem()
+    public function outpProblem()
     {
         $str = "<table>\n";
         $i = 0;

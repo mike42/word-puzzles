@@ -24,7 +24,7 @@
 <?php
 use Mike42\WordPuzzles\FindAWord;
 
-$fw_lang = FindAWord::supported_languages();
+$fw_lang = FindAWord::supportedLanguages();
 foreach ($fw_lang as $lang) {
     $sel_lang[$lang -> code] = $lang -> name;
 } ?>

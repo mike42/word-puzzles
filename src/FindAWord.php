@@ -1,6 +1,7 @@
 <?php
-
 namespace Mike42\WordPuzzles;
+
+use Mike42\WordPuzzles\WordlistLang;
 
 /* Generalised, configurable find-a-word class. */
 
@@ -33,9 +34,9 @@ class FindAWord
     public $bug_out = false;
 
     /* Load the dictionary for a language */
-    function load_dictionary($lang_code)
+    public function loadDictionary($lang_code)
     {
-        $fw_lang = self::supported_languages();
+        $fw_lang = self::supportedLanguages();
         $start_time = microtime(true);
 
         /* First check that the language code exists */
@@ -94,7 +95,7 @@ class FindAWord
         }
 
         if ($fw_lang[$lang_code] -> dict_cache_path != "") {
-            $this -> save_dict_cache($lang_code);
+            $this -> saveDictCache($lang_code);
         }
 
         $end_time = microtime(true);
@@ -102,7 +103,7 @@ class FindAWord
         return true;
     }
 
-    function save_dict_cache($lang_code)
+    protected function saveDictCache($lang_code)
     {
         global $fw_lang;
         $filename = $fw_lang[$lang_code] -> dict_cache_path;
@@ -117,7 +118,7 @@ class FindAWord
     }
 
     /* Either select random words, or store a list of words for the puzzle */
-    function load_words($words = array(), $num = 0)
+    public function loadWords($words = array(), $num = 0)
     {
         $this -> words = array();
         if (count($words) == 0) {
@@ -149,16 +150,16 @@ class FindAWord
     }
 
     /* Select a random letter from the given alphabet */
-    function alphabet_soup($alphabet)
+    protected function alphabetSoup($alphabet)
     {
         $id = rand(0, count($alphabet)-1);
         return $alphabet[$id];
     }
 
     /* The main show: Generate a find-a-word */
-    function calculate($lang_code)
+    public function calculate($lang_code)
     {
-        $fw_lang = self::supported_languages();
+        $fw_lang = self::supportedLanguages();
         $abort = false;
         $start_time = microtime(true);
 
@@ -230,13 +231,13 @@ class FindAWord
                 $fail = 0;
 
                 /* See where we can put this word. */
-                $word_2d = $this -> doWord_square($word, $dir, $rev);
-                $options = $this -> enum_possibilities($word_2d);
+                $word_2d = $this -> doWordSquare($word, $dir, $rev);
+                $options = $this -> enumPossibilities($word_2d);
                 if (isset($options[2])) { /* Use joining options first always */
-                    $this -> paste_word($word_2d, explode(",", $options[2][rand(0, count($options[2]) - 1)]));
+                    $this -> pasteWord($word_2d, explode(",", $options[2][rand(0, count($options[2]) - 1)]));
                     $fail = 0;
                 } elseif (isset($options[1])) { /* Next non-joining options (a lone word) */
-                    $this -> paste_word($word_2d, explode(",", $options[1][rand(0, count($options[1]) - 1)]));
+                    $this -> pasteWord($word_2d, explode(",", $options[1][rand(0, count($options[1]) - 1)]));
                     $fail = 0;
                 } else { /* No options! shucks */
                     if ($this -> bug_out) {
@@ -264,7 +265,7 @@ class FindAWord
         for ($x = 1; $x <= $this -> width; $x++) {
             for ($y = 1; $y <= $this -> height; $y++) {
                 if ($this -> key[$x][$y] == "") {
-                    $this -> puzzle[$x][$y] = $this -> alphabet_soup($alphabet);
+                    $this -> puzzle[$x][$y] = $this -> alphabetSoup($alphabet);
                 } else {
                     $this -> puzzle[$x][$y] = $this -> key[$x][$y];
                 }
@@ -276,7 +277,7 @@ class FindAWord
         return true;
     }
 
-    function paste_word($word, $coords)
+    protected function pasteWord($word, $coords)
     {
         $x = $coords[0];
         $y = $coords[1];
@@ -295,7 +296,7 @@ class FindAWord
         }
     }
 
-    function doWord_square($word, $direction = 0, $reverse = 0)
+    protected function doWordSquare($word, $direction = 0, $reverse = 0)
     {
         /* Put a word in a 2D array, optionally reversing it etc */
         switch ($direction) {
@@ -346,7 +347,7 @@ class FindAWord
         return $temp;
     }
 
-    function enum_possibilities($board_struct)
+    protected function enumPossibilities($board_struct)
     {
         /* List possible locations for this word (outputs list of joining possibilities and non-joining ones) */
         $possibilities = array();
@@ -388,7 +389,7 @@ class FindAWord
     }
 
     /* Output the find-a-word to a HTML table */
-    function outp_table($puzzle)
+    public function outpTable($puzzle)
     {
         $str = "<table class=\"find-a-word\" cellspacing=0>\n";
         for ($y = 1; $y <= $this -> height; $y++) {
@@ -407,7 +408,7 @@ class FindAWord
     }
 
     /* Formatted table for showing the answers */
-    function outp_table_key()
+    public function outpTableKey()
     {
         $str = "<table class=\"find-a-word\" cellspacing=0>\n";
         for ($y = 1; $y <= $this -> height; $y++) {
@@ -426,7 +427,7 @@ class FindAWord
     }
 
     /* Plaintext block of letters */
-    function outp_block($puzzle)
+    protected function outpBlock($puzzle)
     {
         $str = "";
         for ($y = 1; $y <= $this -> height; $y++) {
@@ -442,7 +443,7 @@ class FindAWord
         return $str;
     }
 
-    function reverse($str)
+    protected function reverse($str)
     {
         $res = "";
         for ($i = 0; $i < mb_strlen($str); $i++) {
@@ -451,10 +452,10 @@ class FindAWord
         return $res;
     }
     
-    static function supported_languages()
+    public static function supportedLanguages()
     {
         /* English */
-        $fw_lang['en'] = new cls_find_a_word_lang();
+        $fw_lang['en'] = new WordlistLang();
         $fw_lang['en'] -> code = "en";
         $fw_lang['en'] -> name = "English (United States)";
         $fw_lang['en'] -> alphabet = array(     "A", "B", "C", "D", "E", "F", "G", "H", "I",
@@ -464,7 +465,7 @@ class FindAWord
         $fw_lang['en'] -> dict_cache_path   = "src/dict/en-us.cache.txt";
         
         /* Samoan */
-        $fw_lang['sm'] = new cls_find_a_word_lang();
+        $fw_lang['sm'] = new WordlistLang();
         $fw_lang['sm'] -> code = "sm";
         $fw_lang['sm'] -> name = "Samoan";
         $fw_lang['sm'] -> alphabet = array(     "A", "E", "I", "O", "U", "F", "G", "L", "M",
@@ -473,13 +474,4 @@ class FindAWord
         $fw_lang['sm'] -> dict_cache_path   = "src/dict/sm.cache.txt";
         return  $fw_lang;
     }
-}
-
-/* Structure for language settings */
-class cls_find_a_word_lang
-{
-    public $name            = "";
-    public $alphabet        = array();
-    public $dict_path       = "";
-    public $dict_cache_path= "";
 }

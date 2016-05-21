@@ -19,7 +19,7 @@ class Cipher
     public $symbol = false;
 
     /* Substitute letters according to key */
-    function encode($text)
+    public function encode($text)
     {
         $text = trim(strtoupper($text));
         $result = array();
@@ -45,7 +45,7 @@ class Cipher
     }
 
     /* Make a key (randomise the alphabet of choice) */
-    function generate_key($lang = "en")
+    public function generateKey($lang = "en")
     {
         global $fw_lang;
         $this -> lang = $lang;
@@ -62,7 +62,7 @@ class Cipher
     }
 
     /* Place an array in random order (wrecks keys!) -- Copied from scrambler.php */
-    function unsort($array)
+    protected function unsort($array)
     {
         foreach ($array as $item) {
             /* Randomly choose a numeric ID */
@@ -79,7 +79,7 @@ class Cipher
     }
 
     /* Produce a series of left-floated HTML tables containing result */
-    function outp_html($answer = false)
+    public function outpHtml($answer = false)
     {
         $res[] = "<div style=\"height: 5em\">";
         foreach ($this -> enc as $id => $word) {

@@ -25,7 +25,7 @@ if (has('submit')) {
         }
 
         $req_lang= take('lang');
-        $fw_lang = FindAWord::supported_languages();
+        $fw_lang = FindAWord::supportedLanguages();
         if (!isset($fw_lang[$req_lang])) {
             die("Couldn't find that language!");
         }
@@ -44,7 +44,7 @@ switch ($do) {
         $page_script = "cipher-main";
         break;
     case "generate":
-        $cipher -> generate_key('en');
+        $cipher -> generateKey('en');
         $cipher -> hint = $req_hint;
         $cipher -> symbol = $req_symbol;
         $cipher -> encode($req_text);
