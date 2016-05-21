@@ -1,0 +1,23 @@
+language: php
+
+php:
+  - 5.3
+  - 5.4
+  - 5.5
+  - 5.6
+  - 7.0
+  - hhvm
+  - nightly
+
+matrix:
+  allow_failures:
+    - php: nightly
+
+script:
+  #- php vendor/bin/phpcs --standard=psr2 cli/ common/ includes/ *.php
+  #- php vendor/bin/phpunit --configuration test/phpunit.xml --coverage-text
+  - find  . -name '*.php' ! -path './vendor/*' -print0 | xargs -0 -n 1 php -l
+
+install:
+  - composer install
+
