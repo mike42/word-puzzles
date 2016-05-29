@@ -23,7 +23,7 @@ install:
      sudo tee -a /etc/apt/sources.list
   - sudo apt-get update
   - >
-    sudo apt-get -o Dpkg::Options::="--force-confdef"
+    sudo apt-get -o Dpkg::Options::="--force-confdef" \
      -o Dpkg::Options::="--force-confold" --assume-yes install docker-engine
   - sudo pip install docker-compose
   - composer install
