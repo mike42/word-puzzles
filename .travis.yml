@@ -8,7 +8,6 @@ language: php
 php:
   - 5.6
   - 7.0
-  - hhvm
   - nightly
 
 matrix:
@@ -17,8 +16,9 @@ matrix:
 
 install:
   - composer install
-  
+
 script:
+  - echo $TRAVIS_PHP_VERSION
   - php vendor/bin/phpcs -n --standard=psr2 cli/ src/ includes/ *.php
   - php vendor/bin/phpunit --configuration test/phpunit.xml --coverage-text
 ...
