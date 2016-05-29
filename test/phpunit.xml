@@ -9,6 +9,9 @@ strict="true"
     <testsuite name="unit">
       <directory>unit</directory>
     </testsuite>
+    <testsuite name="selenium">
+      <directory>selenium</directory>
+    </testsuite>
   </testsuites>
   <filter>
     <whitelist processUncoveredFilesFromWhitelist="true">

@@ -18,8 +18,13 @@ install:
   - composer install
 
 script:
-  - echo $TRAVIS_PHP_VERSION
+  # On all tested versions, run unit tests, style check
   - php vendor/bin/phpcs -n --standard=psr2 cli/ src/ includes/ *.php
-  - php vendor/bin/phpunit --configuration test/phpunit.xml --coverage-text
+  - php vendor/bin/phpunit --configuration test/phpunit.xml --coverage-text test/unit/
+  # Execute Selenium tests once only
+  - >
+    if [ "$TRAVIS_PHP_VERSION" == "7.0" ]; then
+      php vendor/bin/phpunit --configuration test/phpunit.xml test/selenium/
+    fi
 ...
 
