@@ -16,6 +16,20 @@ matrix:
 
 install:
   - composer install
+  # Install docker if Selenium tests will run later
+  - >
+    if [ "$TRAVIS_PHP_VERSION" == "5.6" ]; then
+      curl -sSL "https://get.docker.com/gpg" |
+       sudo -E apt-key add -;
+      echo "deb https://apt.dockerproject.org/repo ubuntu-trusty main" |
+       sudo tee -a /etc/apt/sources.list;
+      sudo apt-get update;
+      sudo apt-get -o Dpkg::Options::="--force-confdef"
+       -o Dpkg::Options::="--force-confold" --assume-yes install docker-engine;
+      docker version;
+      sudo pip install docker-compose;
+      docker-compose version;
+    fi
 
 script:
   # On all tested versions, run unit tests, style check
@@ -23,8 +37,10 @@ script:
   - php vendor/bin/phpunit --configuration test/phpunit.xml --coverage-text test/unit/
   # Execute Selenium tests once only
   - >
-    if [ "$TRAVIS_PHP_VERSION" == "7.0" ]; then
-      php vendor/bin/phpunit --configuration test/phpunit.xml test/selenium/
+    if [ "$TRAVIS_PHP_VERSION" == "5.6" ]; then
+      docker-compose up --build -d;
+      php vendor/bin/phpunit --configuration test/phpunit.xml test/selenium/;
+      docker-compose down;
     fi
 ...
 
