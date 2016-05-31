@@ -1,19 +1,42 @@
+---
+# Use Ubuntu 'trusty' distribution
+sudo: required
+dist: trusty
+
 language: php
 
 php:
   - 5.6
   - 7.0
-  - hhvm
   - nightly
 
 matrix:
   allow_failures:
     - php: nightly
 
+install:
+  - >
+    curl -sSL "https://get.docker.com/gpg" |
+     sudo -E apt-key add -
+  - >
+    echo "deb https://apt.dockerproject.org/repo ubuntu-trusty main" |
+     sudo tee -a /etc/apt/sources.list
+  - sudo apt-get update
+  - >
+    sudo apt-get -o Dpkg::Options::="--force-confdef" \
+     -o Dpkg::Options::="--force-confold" --assume-yes install docker-engine
+  - sudo pip install docker-compose
+  - composer install
+
+before_script:
+  - docker-compose up --build -d
+
 script:
   - php vendor/bin/phpcs -n --standard=psr2 cli/ src/ includes/ *.php
-  #- php vendor/bin/phpunit --coverage-text
+  - php vendor/bin/phpunit test/unit/ --coverage-text
+  - php vendor/bin/phpunit test/selenium/
 
-install:
-  - composer install
+after_script:
+  - docker-compose down
+...
 

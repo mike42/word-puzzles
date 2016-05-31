@@ -1,0 +1,8 @@
+version: '2'
+services:
+  word_puzzles:
+    build: .
+    ports:
+     - "8080:80"
+    container_name: word_puzzles_1
+
