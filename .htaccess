@@ -1,0 +1,3 @@
+# Prevent access to dotfiles/dirs and .git subfolder
+RedirectMatch 403 ^(.)*/\.(.)*$
+
