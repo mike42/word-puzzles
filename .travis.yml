@@ -28,12 +28,12 @@ install:
      -o Dpkg::Options::="--force-confold" --assume-yes install docker-engine
   - sudo pip install docker-compose
   - composer install
-
-before_script:
   # Download selenium
   - mkdir -p selenium
-  - wget -nc -O selenium/selenium-server-standalone-2.53.0.jar \
+  - wget -nc -O selenium/selenium-server-standalone-2.53.0.jar
      http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.0.jar
+
+before_script:
   # Start selenium
   - /usr/bin/xvfb-run \
     java -jar selenium/selenium-server-standalone-2.53.0.jar > selenium.log &
