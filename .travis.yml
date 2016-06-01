@@ -27,16 +27,19 @@ install:
     sudo apt-get -o Dpkg::Options::="--force-confdef" \
      -o Dpkg::Options::="--force-confold" --assume-yes install docker-engine
   - sudo pip install docker-compose
-  - composer install
   # Download selenium
   - mkdir -p selenium
-  - wget -nc -O selenium/selenium-server-standalone-2.53.0.jar
+  - >
+    wget -c -O selenium/selenium-server-standalone-2.53.0.jar \
      http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.0.jar
+  # Composer deps
+  - composer install
 
 before_script:
   # Start selenium
-  - /usr/bin/xvfb-run \
-    java -jar selenium/selenium-server-standalone-2.53.0.jar > selenium.log &
+  - >
+    /usr/bin/xvfb-run \
+     java -jar selenium/selenium-server-standalone-2.53.0.jar > selenium.log &
   # Start container
   - docker-compose up --build -d
 
@@ -47,6 +50,9 @@ script:
 
 after_script:
   - docker-compose down
+
+after_failure:
+  - cat selenium.log
 
 cache:
   directories:

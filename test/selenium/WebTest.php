@@ -17,4 +17,3 @@ class WebTest extends \PHPUnit_Extensions_Selenium2TestCase
         $this->assertEquals('Mike\'s Word-Search Generator', $this->title());
     }
 }
-
