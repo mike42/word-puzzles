@@ -15,6 +15,7 @@ matrix:
     - php: nightly
 
 install:
+  # Install recent docker
   - >
     curl -sSL "https://get.docker.com/gpg" |
      sudo -E apt-key add -
@@ -26,17 +27,35 @@ install:
     sudo apt-get -o Dpkg::Options::="--force-confdef" \
      -o Dpkg::Options::="--force-confold" --assume-yes install docker-engine
   - sudo pip install docker-compose
+  # Download selenium
+  - mkdir -p selenium
+  - >
+    wget -c -O selenium/selenium-server-standalone-2.53.0.jar \
+     http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.0.jar
+  # Composer deps
   - composer install
 
 before_script:
+  # Start selenium
+  - >
+    /usr/bin/xvfb-run \
+     java -jar selenium/selenium-server-standalone-2.53.0.jar > selenium.log &
+  # Start container
   - docker-compose up --build -d
 
 script:
-  - php vendor/bin/phpcs -n --standard=psr2 cli/ src/ includes/ *.php
+  - php vendor/bin/phpcs -n --standard=psr2 cli/ src/ test/ includes/ *.php
   - php vendor/bin/phpunit test/unit/ --coverage-text
   - php vendor/bin/phpunit test/selenium/
 
 after_script:
   - docker-compose down
+
+after_failure:
+  - cat selenium.log
+
+cache:
+  directories:
+  - selenium
 ...
 
