@@ -1,0 +1,24 @@
+{
+  "name": "word-puzzles",
+  "authors": [
+    "Michael Billington <michael.billington@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "~3.3.6"
+  }
+}

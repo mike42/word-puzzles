@@ -8,8 +8,8 @@ use Mike42\WordPuzzles\FindAWord;
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title><?php echo htmlspecialchars($page_title); ?></title>
-        <script type="text/javascript" src="style/script.js"></script>
-        <link rel="stylesheet" href="style/style.css">
+        <script type="text/javascript" src="assets/js/word-puzzles.min.js"></script>
+        <link rel="stylesheet" href="assets/css/word-puzzles.css">
     </head>
     <body>
     <div class="container-panel">
