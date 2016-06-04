@@ -461,8 +461,8 @@ class FindAWord
         $fw_lang['en'] -> alphabet = array(     "A", "B", "C", "D", "E", "F", "G", "H", "I",
             "J", "K", "L", "M", "N", "O", "P", "Q", "R",
             "S", "T", "U", "V", "W", "X", "Y", "Z");
-        $fw_lang['en'] -> dict_path         = "src/dict/en-us.txt";
-        $fw_lang['en'] -> dict_cache_path   = "src/dict/en-us.cache.txt";
+        $fw_lang['en'] -> dict_path         = "server/dict/en-us.txt";
+        $fw_lang['en'] -> dict_cache_path   = "server/dict/en-us.cache.txt";
         
         /* Samoan */
         $fw_lang['sm'] = new WordlistLang();
@@ -470,8 +470,8 @@ class FindAWord
         $fw_lang['sm'] -> name = "Samoan";
         $fw_lang['sm'] -> alphabet = array(     "A", "E", "I", "O", "U", "F", "G", "L", "M",
             "N", "P", "S", "T", "V", "H", "K", "R");
-        $fw_lang['sm'] -> dict_path         = "src/dict/sm.txt";
-        $fw_lang['sm'] -> dict_cache_path   = "src/dict/sm.cache.txt";
+        $fw_lang['sm'] -> dict_path         = "server/dict/sm.txt";
+        $fw_lang['sm'] -> dict_cache_path   = "server/dict/sm.cache.txt";
         return  $fw_lang;
     }
 }
