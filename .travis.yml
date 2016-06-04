@@ -51,7 +51,7 @@ before_script:
   - docker-compose up --build -d
 
 script:
-  - php vendor/bin/phpcs -n --standard=psr2 cli/ src/ test/ includes/ *.php
+  - php vendor/bin/phpcs -n --standard=psr2 cli/ server/ test/ includes/ *.php
   - php vendor/bin/phpunit test/unit/ --coverage-text
   - php vendor/bin/phpunit test/selenium/
 
