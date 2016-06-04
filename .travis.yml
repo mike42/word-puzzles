@@ -27,17 +27,22 @@ install:
     sudo apt-get -o Dpkg::Options::="--force-confdef" \
      -o Dpkg::Options::="--force-confold" --assume-yes install docker-engine
   - sudo pip install docker-compose
-  # Install Grunt
-  - sudo npm install -g grunt-cli 
   # Download selenium
   - mkdir -p selenium
   - >
     wget -c -O selenium/selenium-server-standalone-2.53.0.jar \
      http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.0.jar
-  # Pull in external packages, build
+  # Install NPM, Grunt, Bower
+  - which npm || true
+  - which grunt || true
+  - which bower || true
+  - sudo apt-get install npm
+  - sudo npm install -g bower
+  - sudo npm install -g grunt-cli 
+  # Pull in external packages, build front-end code
+  - composer install
   - npm install
   - bower install
-  - composer install
   - grunt
 
 before_script:
