@@ -33,10 +33,7 @@ install:
     wget -c -O selenium/selenium-server-standalone-2.53.0.jar \
      http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.0.jar
   # Install NPM, Grunt, Bower
-  - which npm || true
-  - which grunt || true
-  - which bower || true
-  - sudo apt-get install npm
+  - sudo apt-get --assume-yes install npm
   - sudo npm install -g bower
   - sudo npm install -g grunt-cli 
   # Pull in external packages, build front-end code
