@@ -57,7 +57,7 @@ class Scrambler
 
     public function outpSolution()
     {
-        $str = "<table>\n";
+        $str = "<table class=\"puzzle-scramble\">\n";
         $i = 0;
         foreach ($this -> scrambled as $orig => $messed) {
             if ($i % 2 == 0) {
@@ -83,7 +83,7 @@ class Scrambler
 
     public function outpProblem()
     {
-        $str = "<table>\n";
+        $str = "<table class=\"puzzle-scramble\">\n";
         $i = 0;
         foreach ($this -> scrambled as $orig => $messed) {
             if ($i % 2 == 0) {

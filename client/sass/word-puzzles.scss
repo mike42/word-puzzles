@@ -1,3 +1,8 @@
+@import "bs_variables.scss";
+
+@import
+	"../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+
 /* To format the puzzles themselves */
 .find-a-word {
 	font-size: 80%;
@@ -27,50 +32,63 @@
 	padding-left: 0;
 }
 
-/* Other page formatting */
+.toggle {
+    float: right;
+}
+
+.toggle-hidden {
+    display: none;
+}
+
+button, input[type='button'], input[type='submit'] {
+	@extend .btn;
+	@extend .btn-default;
+}
+
+textarea {
+    @extend .form-control;
+}
+
+select {
+	@extend .form-control;
+}
+
+.puzzle-scramble td {
+	padding: 0.5em;
+}
+
+.puzzle-scramble {
+	margin-bottom: 20px;
+}
+
+.puzzle-cipher {
+    margin-bottom: 20px;
+}
+
+#select-word_count, #select-width, #select-height {
+	width: 5em;
+	display: inline-block;
+}
+
+body { padding-top: 50px; }
+
 .radio-list {
 	list-style-type: none;
 	list-style-image: none
 }
 
-body {
-	margin: 0;
+html {
+       overflow-y: scroll;
 }
 
-.container-panel {
-	background-color: #eee;
+.container-fluid,
+.container {
+  max-width: $container-md;
 }
 
-.left-panel {
-	float: left;
-	width: 12em;
-	background-color: #eee;
-	padding: 1em;
-	padding-top: 2em;
-}
-
-.right-panel {
-	border-left: 1px solid #888;
-	padding: 1em;
-	margin-left: 14em;
-	background-color: #fff;
-}
-
-.right-panel h2 {
-	margin: 0;
-	font-family: sans-serif;
-	border-bottom: 1px solid #888;
-}
-
-.right-panel h3 {
-	font-family: sans-serif;
-	border-bottom: 1px solid #888;
-}
-
-.hidden {
-	display: none;
-}
-
-.toggle {
-	float: right;
+@media print {
+	body { padding-top: 0; }
+	#solution-show { display: none; }
+	#solution-hide { display: none; }
+	.gen-time { display: none; }
 }

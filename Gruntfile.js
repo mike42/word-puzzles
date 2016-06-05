@@ -26,6 +26,11 @@ module.exports = function(grunt) {
           {expand: true, flatten: true, src: ['bower_components/jquery/dist/*'], dest: 'assets/js/', filter: 'isFile'},
         ],
       },
+      fonts: {
+        files: [
+          {expand: true, flatten: true, src: ['bower_components/bootstrap-sass/assets/fonts/bootstrap/*'], dest: 'assets/fonts/bootstrap/', filter: 'isFile'},
+        ],
+      },
     },
     concat: {
       options: {

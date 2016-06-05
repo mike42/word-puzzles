@@ -81,9 +81,9 @@ class Cipher
     /* Produce a series of left-floated HTML tables containing result */
     public function outpHtml($answer = false)
     {
-        $res[] = "<div style=\"height: 5em\">";
+        $res[] = "<div class=\"puzzle-cipher\">";
         foreach ($this -> enc as $id => $word) {
-            $res[] = "	<table style=\"float:left; padding-right: 1em;\">";
+            $res[] = "	<table class=\"puzzle-cipher-word\" style=\"float:left; margin-right: 1em;\">";
             $res[] = "		<tr>";
             foreach ($word as $letter) {
                 if (isset($this -> key_rev[$letter])) {
@@ -92,18 +92,17 @@ class Cipher
                     } else {
                         $col = "";
                     }
-                    $res[] = "		<td style=\"border: 1px solid #000; width: 1em; text-align: center;$col\">";
+                    $res[] = "		<td style=\"border: 1px solid #000; width: 1.2em; text-align: center;$col\">";
                     if ($answer || $id == $this -> hint_word) {
                         $res[] = "		".htmlentities($this -> key_rev[$letter])."</td>";
+                    } else {
+                        $res[] = "		"."&nbsp;</td>";
                     }
                 } else {
                     $res[] = "		<td style=\"text-align: center;\">";
                     if ($answer) {
                         $res[] = "		".htmlentities($letter)."</td>";
                     }
-                }
-                if (!$answer) {
-                        $res[] = "		"."&nbsp;</td>";
                 }
             }
             $res[] = "		</tr><tr>";
@@ -113,6 +112,7 @@ class Cipher
             $res[] = "		</tr>";
             $res[] = "</table>";
         }
+        $res[] = "<div style=\"clear: both;\"></div>";
         $res[] = "</div>";
         return join("\n", $res);
     }

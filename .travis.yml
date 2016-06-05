@@ -35,7 +35,7 @@ install:
   # Install NPM, Grunt, Bower, Sass
   - sudo apt-get --assume-yes install npm ruby-sass
   - sudo npm install -g bower
-  - sudo npm install -g grunt-cli 
+  - sudo npm install -g grunt-cli
   # Pull in external code dependencies, build front-end code
   - composer install
   - npm install

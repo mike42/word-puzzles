@@ -12,5 +12,6 @@ selenium/*
 # Compiled files
 assets/js/*
 assets/css/*
+assets/fonts/*
 .sass-cache/*
 selenium.log

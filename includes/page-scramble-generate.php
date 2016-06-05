@@ -3,7 +3,7 @@
     <?php
     echo "<div style=\"padding:1em\">";
     echo "<p>The letters in these words have been <b>scrambled</b>. Try to put them back in the correct order:</p>";
-    echo "<div id=\"solution\" class=\"hidden\">";
+    echo "<div id=\"solution\" class=\"toggle-hidden\">";
     echo $scramble -> outpSolution();
     echo "</div>";
     echo "<div id=\"solution-sub\">";
@@ -14,11 +14,13 @@
     echo "</dd>";
     echo "</div>";  ?>
 
-    <div id="solution-show">
-        <input type="submit" name="submit" value="Regenerate" /><input type="button" onClick="toggle('solution');" value="Show solution" />
-    </div>
-    <div id="solution-hide" class="hidden">
-        <input type="submit" name="submit" value="Regenerate" /><input type="button" onClick="toggle('solution');" value="Hide solution" />
+    <div class="form-group">
+        <div id="solution-show">
+            <input type="submit" name="submit" value="Regenerate" /><input type="button" onClick="toggle('solution');" value="Show solution" />
+        </div>
+        <div id="solution-hide" class="toggle-hidden">
+            <input type="submit" name="submit" value="Regenerate" /><input type="button" onClick="toggle('solution');" value="Hide solution" />
+        </div>
     </div>
 
     <?php echo field("word_list", join(",", $req_word_list_arr)); ?>

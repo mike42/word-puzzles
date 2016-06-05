@@ -68,7 +68,7 @@ if (has('submit')) { /* Everything which involves a submit */
 }
 
 /* Calls to the $find_a_word object under here: */
-$page_title = "Mike's Word-Search Generator";
+$page_title = "Create Word Search";
 switch ($do) {
     case "nothing":
         $page_script = "main";
@@ -92,6 +92,7 @@ switch ($do) {
         $page_gen_left = true;
         break;
     case "generate":
+        $page_title = "Word Search";
         if ($req_width > 30 || $req_height > 30 || count($req_word_list_arr) > 75) {
          /* The algorithm can reliably place 75 words in a 30x30 grid in about 3 seconds on my 1.6ghz atom.
 			but becomes very slow for large grids due to the explosion of the number of possibilities.

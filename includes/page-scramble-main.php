@@ -31,7 +31,9 @@ foreach ($fw_lang as $lang) {
         <ul class="radio-list">
             <li><?php echo select("lang", $sel_lang, 'en'); ?>
         </ul>
-        <p><input type="submit" name="submit" value="Next step" /></p>
+        <div class="form-group">
+            <button type="submit" name="submit">Next step <i class="glyphicon glyphicon-chevron-right"></i> </button>
+        </div>
     </form>
 <?php function radio($field, $value, $caption, $selected = 0)
 {
@@ -55,7 +57,7 @@ function checkbox($field, $caption, $selected = 0)
 }
 function select($field, $options, $selected = 0)
 {
-    $str = "<select name=\"$field\">";
+    $str = "<select name=\"$field\" id=\"select-$field\">";
     foreach ($options as $id => $caption) {
         if ($id == $selected) {
             $sel = " selected=\"1\"";

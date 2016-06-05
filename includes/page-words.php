@@ -9,9 +9,11 @@ if ($req_word_source == "dict") {
     echo "<p>Please enter the list of words below, one per line:</p>";
 } ?>
         <form action="index.php" method="post">
-            <div style="width: 18em; text-align: right;">
-                <textarea cols=35 rows=20 name="word_list"><?php echo htmlspecialchars($word_list_str); ?></textarea>
-                <input type="submit" name="submit" value="Make puzzle" />
+            <div class="form-group">
+                <textarea cols=35 rows=15 name="word_list"><?php echo htmlspecialchars($word_list_str); ?></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" name="submit">Make puzzle <i class="glyphicon glyphicon-chevron-right"></i> </button>
             </div>
             <?php echo field("width", $req_width);
                 echo field("height", $req_height);

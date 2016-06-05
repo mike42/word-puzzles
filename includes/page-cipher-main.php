@@ -8,26 +8,27 @@
         </ul>
 
         <p>Please select puzzle language:</p>
-        <ul class="radio-list">
-            <?php
-            use Mike42\WordPuzzles\FindAWord;
 
-            $fw_lang = FindAWord::supportedLanguages();
-            foreach ($fw_lang as $lang) {
-                $sel_lang[$lang -> code] = $lang -> name;
-            } ?>
-            <ul class="radio-list">
-                <li><?php echo select("lang", $sel_lang, 'en'); ?>
-            </ul>
+        <?php
+        use Mike42\WordPuzzles\FindAWord;
+
+        $fw_lang = FindAWord::supportedLanguages();
+        foreach ($fw_lang as $lang) {
+            $sel_lang[$lang -> code] = $lang -> name;
+        } ?>
+        <ul class="radio-list">
+            <li><?php echo select("lang", $sel_lang, 'en'); ?>
         </ul>
 
-        <p>Please select puzzle language:</p>
+        <p>Other options:</p>
         <ul class="radio-list">
             <li><?php echo checkbox("hint", "Include hint", 1);?></li>
             <li style="display: none;"><?php echo checkbox("symbol", "Use symbols instead of letters", 0);?></li>
         </ul>
     
-        <p><input type="submit" name="submit" value="Next step" /></p>
+        <div class="form-group">
+            <button type="submit" name="submit">Next step <i class="glyphicon glyphicon-chevron-right"></i> </button>
+        </div>
     </form>
 <?php function radio($field, $value, $caption, $selected = 0)
 {

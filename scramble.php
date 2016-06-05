@@ -41,7 +41,7 @@ if (has('submit')) {
     $do = "nothing";
 }
 
-$page_title    = "Mike's Word Scrambler";
+$page_title    = "Create Word Scramble";
 switch ($do) {
     case "nothing":
         $page_script = "scramble-main";
@@ -62,6 +62,7 @@ switch ($do) {
         $page_script = "scramble-words";
         break;
     case "generate":
+        $page_title    = "Word Scramble";
         $scramble -> scramble($req_word_list_arr);
         $page_script = "scramble-generate";
         break;
