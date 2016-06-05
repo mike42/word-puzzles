@@ -3,19 +3,20 @@
 	font-size: 80%;
 	border-right: 1px solid #000;
 	border-bottom: 1px solid #000;
-	padding:0;
+	padding: 0;
 	margin: 0;
 }
 
 .find-a-word td {
 	border-left: 1px solid #000;
 	border-top: 1px solid #000;
-	padding:0;
+	padding: 0;
 	margin: 0;
 	text-align: center;
 	width: 1.4em;
 	height: 1.4em;
 }
+
 .word-here {
 	background-color: #ff0;
 }
@@ -33,7 +34,7 @@
 }
 
 body {
-	margin:0;
+	margin: 0;
 }
 
 .container-panel {
@@ -41,7 +42,7 @@ body {
 }
 
 .left-panel {
-	float:left;
+	float: left;
 	width: 12em;
 	background-color: #eee;
 	padding: 1em;
@@ -60,10 +61,16 @@ body {
 	font-family: sans-serif;
 	border-bottom: 1px solid #888;
 }
+
 .right-panel h3 {
 	font-family: sans-serif;
 	border-bottom: 1px solid #888;
 }
-.hidden{ display: none; }
-.toggle {float: right; }
 
+.hidden {
+	display: none;
+}
+
+.toggle {
+	float: right;
+}
