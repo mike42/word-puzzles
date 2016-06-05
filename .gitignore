@@ -10,6 +10,7 @@ selenium/*
 .settings/*
 
 # Compiled files
-assets/*
+assets/js/*
+assets/css/*
 .sass-cache/*
 selenium.log
