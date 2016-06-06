@@ -6,8 +6,10 @@ RedirectMatch 403 ^(.)*/(vendor|bower_components|node_modules)/(.)*$
 
 # Note that assets/ contains a .htaccess file allowing access to compiled JS/CSS
 # Everything else is denied, other than the public entry points
-Require all denied
-<FilesMatch "^(|index\.php|cipher\.php|scramble\.php)$">
-    Require all granted
+Order Deny,Allow
+Deny from All
+<FilesMatch "^(|index\.php|cipher\.php|scramble\.php|favicon\.png)$">
+    Order Deny,Allow
+    Allow from All
 </FilesMatch>
 
