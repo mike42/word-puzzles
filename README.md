@@ -12,25 +12,37 @@ A live version of this code runs at [https://mike42.me/words/](https://mike42.me
 
 ## Installation
 
-PHP versions from 5.6 up are supported. Simply copy the application to your PHP-enabled webserver, and set up the autoloader via `composer`.
+PHP versions from 5.6 up are supported. Simply generate the stylesheets and scripts, then copy the application to your PHP-enabled webserver:
 
 ```bash
 composer install --no-dev
+bower install
+npm install
+grunt
 ```
 
 ## Development
 
-MIT-licensed contributions are welcome. This project uses the PSR-2 code conventions.
+MIT-licensed contributions are welcome.
 
-You will require `composer` for development dependencies.
+The CI script at [.travis.yml](https://github.com/mike42/word-puzzles/blob/master/.travis.yml) contains commands to set up and run a build on Linux.
 
-```bash
-composer install
-```
+### Technology
+This project uses-
 
-### Style check
+Server-side:
+- PHP (PSR-2 code conventions checked with PHP_CodeSniffer)
+- Composer for server-side dependencies
+- Testing
+ - PHPUnit for test execution
+ - Selenium browser tests
+ - Apache Web Server on Debian (in a Docker container) to host the app for testing.
 
-```
-php vendor/bin/phpcs -n --standard=psr2 cli/ src/ includes/ *.php
-```
-
+Client code:
+- Libraries
+ - Bootstrap
+ - JQuery
+- Compilation/pre-processing
+ - Sass stylesheet processing
+ - Grunt build
+ - npm & bower for loading build pipleine dependencies 
