@@ -6,7 +6,7 @@
     },
     "autoload": {
 		    "psr-4": {
-            "Mike42\\WordPuzzles\\": "src"
+            "Mike42\\WordPuzzles\\": "server"
         }
 	}
 }

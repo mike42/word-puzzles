@@ -1,6 +1,6 @@
 	<h2><?php echo htmlspecialchars($page_title); ?></h2>
         <p>This is a <b>word-search</b> (a.k.a <b>find-a-word</b>) generator. Select from the options below, or read the <a href="?action=info">info page</a> if you would like to know how it works.</p>
-        <form action="index.php" method="post">
+        <form action="index.php" role="form" class="form-inline" method="post">
             <p>My puzzle will be:</p>
             <ul class="radio-list">
             <?php	for ($i = $find_a_word -> c_min_words; $i <= $find_a_word -> c_max_words; $i++) { /* Contents of word select box */
@@ -21,12 +21,12 @@ for ($i = $find_a_word -> c_min_size; $i <= $find_a_word -> c_max_size; $i++) { 
                 <li><?php echo radio("word_source", "list", "I will type in a list of words", 0);?></li>
             </ul>
             <div class="toggle" id="more-options-show">(<a href="JavaScript: void{}" onClick="toggle('more-options')">show</a>)</div>
-            <div class="toggle hidden" id="more-options-hide">(<a href="JavaScript: void{}" onClick="toggle('more-options')">hide</a>)</div>
+            <div class="toggle toggle-hidden" id="more-options-hide">(<a href="JavaScript: void{}" onClick="toggle('more-options')">hide</a>)</div>
             <h3>Extra options</h3>
             <div id="more-options-sub">
                 <dl><dd><i>Configure diagonal words, reverse words, languages, and advanced options.</i></dl>
             </div>
-            <div id="more-options" class="hidden">
+            <div id="more-options" class="toggle-hidden">
                 <p>Word search language:</p>
                 <?php
                 use Mike42\WordPuzzles\FindAWord;
@@ -56,7 +56,9 @@ for ($i = $find_a_word -> c_min_size; $i <= $find_a_word -> c_max_size; $i++) { 
                     <li><?php echo checkbox("slow", "Try to switch off PHP's time limit (".ini_get('max_execution_time')." seconds)", 0); ?></li>
                 </ul>
             </div>
-            <p><input type="submit" name="submit" value="Next step" /></p>
+            <div class="form-group">
+                <button type="submit" name="submit">Next step <i class="glyphicon glyphicon-chevron-right"></i> </button>
+            </div>
         </form>
 <?php function radio($field, $value, $caption, $selected = 0)
 {
@@ -80,7 +82,7 @@ function checkbox($field, $caption, $selected = 0)
 }
 function select($field, $options, $selected = 0)
 {
-    $str = "<select name=\"$field\">";
+    $str = "<select class=\"form-control\" name=\"$field\" id=\"select-$field\">";
     foreach ($options as $id => $caption) {
         if ($id == $selected) {
             $sel = " selected=\"1\"";

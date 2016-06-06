@@ -1,0 +1,94 @@
+@import "bs_variables.scss";
+
+@import
+	"../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+
+/* To format the puzzles themselves */
+.find-a-word {
+	font-size: 80%;
+	border-right: 1px solid #000;
+	border-bottom: 1px solid #000;
+	padding: 0;
+	margin: 0;
+}
+
+.find-a-word td {
+	border-left: 1px solid #000;
+	border-top: 1px solid #000;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+	width: 1.4em;
+	height: 1.4em;
+}
+
+.word-here {
+	background-color: #ff0;
+}
+
+.word-list {
+	list-style-type: none;
+	list-style-image: none;
+	padding-left: 0;
+}
+
+.toggle {
+    float: right;
+}
+
+.toggle-hidden {
+    display: none;
+}
+
+button, input[type='button'], input[type='submit'] {
+	@extend .btn;
+	@extend .btn-default;
+}
+
+textarea {
+    @extend .form-control;
+}
+
+select {
+	@extend .form-control;
+}
+
+.puzzle-scramble td {
+	padding: 0.5em;
+}
+
+.puzzle-scramble {
+	margin-bottom: 20px;
+}
+
+.puzzle-cipher {
+    margin-bottom: 20px;
+}
+
+#select-word_count, #select-width, #select-height {
+	width: 5em;
+	display: inline-block;
+}
+
+body { padding-top: 50px; }
+
+.radio-list {
+	list-style-type: none;
+	list-style-image: none
+}
+
+html {
+       overflow-y: scroll;
+}
+
+.container-fluid,
+.container {
+  max-width: $container-md;
+}
+
+@media print {
+	body { padding-top: 0; }
+	#solution-show { display: none; }
+	#solution-hide { display: none; }
+	.gen-time { display: none; }
+}

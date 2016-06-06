@@ -38,12 +38,13 @@ if (has('submit')) {
     $do = "nothing";
 }
 
-$page_title    = "Mike's Word Cipher";
+$page_title    = "Create Word Cipher";
 switch ($do) {
     case "nothing":
         $page_script = "cipher-main";
         break;
     case "generate":
+        $page_title    = "Word Cipher";
         $cipher -> generateKey('en');
         $cipher -> hint = $req_hint;
         $cipher -> symbol = $req_symbol;

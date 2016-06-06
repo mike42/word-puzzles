@@ -1,7 +1,7 @@
 	<h2><?php echo htmlspecialchars($page_title); ?></h2>
 <p>Solve this cryptogram:</p>
 <table><tr><td>
-<?php	echo "<div id=\"solution\" class=\"hidden\">";
+<?php	echo "<div id=\"solution\" class=\"toggle-hidden\">";
     echo $cipher -> outpHtml(true);
     echo "</div>";
     echo "<div id=\"solution-sub\">";
@@ -12,7 +12,7 @@
         <div id="solution-show">
             <input type="submit" name="submit" value="Regenerate" /><input type="button" onClick="toggle('solution');" value="Show solution" />
         </div>
-        <div id="solution-hide" class="hidden">
+        <div id="solution-hide" class="toggle-hidden">
             <input type="submit" name="submit" value="Regenerate" /><input type="button" onClick="toggle('solution');" value="Hide solution" />
         </div>
     <?php	echo field("text", $req_text);

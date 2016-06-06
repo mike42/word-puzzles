@@ -1,8 +1,17 @@
-# Composer stuff
+# External dependencies
 vendor/*
+bower_components/*
+node_modules/*
+selenium/*
 
 # Eclipse stuff
 .buildpath
 .project
 .settings/*
 
+# Compiled files
+assets/js/*
+assets/css/*
+assets/fonts/*
+.sass-cache/*
+selenium.log

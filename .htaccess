@@ -1,3 +1,13 @@
-# Prevent access to dotfiles/dirs and .git subfolder
+# RedirectMatch on all dot-dirs and subdirectories containing external
+# dependencies. This prevents some .htaccess stashed in the git history from
+# allowing access.
 RedirectMatch 403 ^(.)*/\.(.)*$
+RedirectMatch 403 ^(.)*/(vendor|bower_components|node_modules)/(.)*$
+
+# Note that assets/ contains a .htaccess file allowing access to compiled JS/CSS
+# Everything else is denied, other than the public entry points
+Require all denied
+<FilesMatch "^(|index\.php|cipher\.php|scramble\.php)$">
+    Require all granted
+</FilesMatch>
 

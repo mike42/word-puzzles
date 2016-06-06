@@ -17,7 +17,7 @@ class WebTest extends \PHPUnit_Extensions_Selenium2TestCase
     {
         // Simply access the main page
         $this->url($this->base . '/index.php?action=info');
-        $this->assertEquals('Mike\'s Word-Search Generator', $this->title());
+        $this->assertEquals('Create Word Search', $this->title());
     }
 
     public function testWordSearch()

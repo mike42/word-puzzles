@@ -9,7 +9,7 @@
 
     <?php
     echo "<table><tr><td valign=\"top\" style=\"padding:1em\">";
-    echo "<div id=\"solution\" class=\"hidden\">";
+    echo "<div id=\"solution\" class=\"toggle-hidden\">";
     echo $find_a_word -> outpTableKey();
     echo "</div>";
     echo "<div id=\"solution-sub\">";
@@ -25,7 +25,7 @@
     <div id="solution-show">
         <input type="submit" name="submit" value="Regenerate" /><input type="button" onClick="toggle('solution');" value="Show solution" />
     </div>
-    <div id="solution-hide" class="hidden">
+    <div id="solution-hide" class="toggle-hidden">
         <input type="submit" name="submit" value="Regenerate" /><input type="button" onClick="toggle('solution');" value="Hide solution" />
     </div>
     <hr/>
@@ -37,7 +37,7 @@
             echo "</ul>Press 'regenerate to try again.</p>";
 }
 
-        echo "<p><small>Puzzle generated in ".$find_a_word -> calc_time." seconds.</small></p>";
+        echo "<p class=\"gen-time\"><small>Puzzle generated in ".$find_a_word -> calc_time." seconds.</small></p>";
 
         /* All fields here */
         echo field("word_list", join(",", $req_word_list_arr));
