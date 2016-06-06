@@ -94,7 +94,7 @@ class Scrambler
             }
             $str .= htmlspecialchars($messed)."</td>\n";
             $str .= "		<td> = </td>\n";
-            $str .= "		<td style=\"min-width: 10em;\">__________________</td>\n";
+            $str .= "		<td style=\"min-width: 10em;\">_______________</td>\n";
             if ($i % 2 != 0) {
                 $str .= "	</tr>\n";
             }
