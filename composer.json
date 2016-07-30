@@ -5,9 +5,9 @@
         "phpunit/phpunit-selenium": ">=1.2"
     },
     "autoload": {
-		    "psr-4": {
+        "psr-4": {
             "Mike42\\WordPuzzles\\": "server"
         }
-	}
+    }
 }
 
