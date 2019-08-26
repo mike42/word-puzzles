@@ -17,7 +17,7 @@ install:
   - mkdir -p selenium
   - >
     wget -c -O selenium/selenium-server-standalone-3.141.59.jar \
-     http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-3.141.59.jar
+     http://selenium-release.storage.googleapis.com/3.141/selenium-server-standalone-3.141.59.jar
   # Install NPM, Grunt, Bower, Sass
   - sudo apt-get --assume-yes install npm ruby-sass
   - sudo npm install -g bower
