@@ -16,8 +16,8 @@ install:
   # Download selenium
   - mkdir -p selenium
   - >
-    wget -c -O selenium/selenium-server-standalone-2.53.0.jar \
-     http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.0.jar
+    wget -c -O selenium/selenium-server-standalone-3.141.59.jar \
+     http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-3.141.59.jar
   # Install NPM, Grunt, Bower, Sass
   - sudo apt-get --assume-yes install npm ruby-sass
   - sudo npm install -g bower
@@ -32,7 +32,7 @@ before_script:
   # Start selenium
   - >
     /usr/bin/xvfb-run \
-     java -jar selenium/selenium-server-standalone-2.53.0.jar > selenium.log &
+     java -jar selenium/selenium-server-standalone-3.141.59.jar > selenium.log &
   # Start container
   - docker-compose up --build -d
 
