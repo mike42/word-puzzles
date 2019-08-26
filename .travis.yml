@@ -1,13 +1,11 @@
 ---
-# Use Ubuntu 'trusty' distribution
 sudo: required
-dist: trusty
+dist: xenial
 
 language: php
 
 php:
-  - 5.6
-  - 7.0
+  - 7.3
   - nightly
 
 matrix:
@@ -15,18 +13,6 @@ matrix:
     - php: nightly
 
 install:
-  # Install recent docker
-  - >
-    curl -sSL "https://get.docker.com/gpg" |
-     sudo -E apt-key add -
-  - >
-    echo "deb https://apt.dockerproject.org/repo ubuntu-trusty main" |
-     sudo tee -a /etc/apt/sources.list
-  - sudo apt-get update
-  - >
-    sudo apt-get -o Dpkg::Options::="--force-confdef" \
-     -o Dpkg::Options::="--force-confold" --assume-yes install docker-engine
-  - sudo pip install docker-compose
   # Download selenium
   - mkdir -p selenium
   - >
