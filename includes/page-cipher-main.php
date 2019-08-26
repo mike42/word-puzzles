@@ -1,4 +1,4 @@
-	<h2><?php echo htmlspecialchars($page_title); ?></h2>
+    <h2><?php echo htmlspecialchars($page_title); ?></h2>
     <form action="cipher.php" method="post">
         <p>This is a <b>word cipher</b>, which will encode phrases using a simple substitution cipher. The resulting puzzle is called a &quot;<a href="http://en.wikipedia.org/wiki/Cryptogram">Cryptogram</a>&quot;.</p>
 

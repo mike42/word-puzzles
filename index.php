@@ -95,13 +95,13 @@ switch ($do) {
         $page_title = "Word Search";
         if ($req_width > 30 || $req_height > 30 || count($req_word_list_arr) > 75) {
          /* The algorithm can reliably place 75 words in a 30x30 grid in about 3 seconds on my 1.6ghz atom.
-			but becomes very slow for large grids due to the explosion of the number of possibilities.
-			Here we force the 'fast' mode for larger puzzles. This mode tells the algorithm to stop at the
-			first viable square, rather than enumerating all possibilities and selecting from them. */
+            but becomes very slow for large grids due to the explosion of the number of possibilities.
+            Here we force the 'fast' mode for larger puzzles. This mode tells the algorithm to stop at the
+            first viable square, rather than enumerating all possibilities and selecting from them. */
             $req_fast = true;
          /* If you feel like switching this, consider using the CLI instead. This is important to the
-			web interface to avoid minutes-long executions for users who turn all of the settings to maximum.
-			I imagine that most practical word-searches are much smaller than this! */
+            web interface to avoid minutes-long executions for users who turn all of the settings to maximum.
+            I imagine that most practical word-searches are much smaller than this! */
         }
 
         if ($req_slow) { /* Long query expected. Turn to 3 mins at user's request. */

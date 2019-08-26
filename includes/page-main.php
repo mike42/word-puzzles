@@ -1,14 +1,14 @@
-	<h2><?php echo htmlspecialchars($page_title); ?></h2>
+    <h2><?php echo htmlspecialchars($page_title); ?></h2>
         <p>This is a <b>word-search</b> (a.k.a <b>find-a-word</b>) generator. Select from the options below, or read the <a href="?action=info">info page</a> if you would like to know how it works.</p>
         <form action="index.php" role="form" class="form-inline" method="post">
             <p>My puzzle will be:</p>
             <ul class="radio-list">
             <?php	for ($i = $find_a_word -> c_min_words; $i <= $find_a_word -> c_max_words; $i++) { /* Contents of word select box */
                     $sel_words[$i] = $i;
-}
-for ($i = $find_a_word -> c_min_size; $i <= $find_a_word -> c_max_size; $i++) { /* Contents of size box */
-    $sel_size[$i] = $i;
-}   ?>
+            }
+            for ($i = $find_a_word -> c_min_size; $i <= $find_a_word -> c_max_size; $i++) { /* Contents of size box */
+                $sel_size[$i] = $i;
+            }   ?>
                 <li><?php echo select("width", $sel_size, 15); ?> x <?php echo select("height", $sel_size, 15); ?> squares, with <?php echo select("word_count", $sel_words, 15); ?> words.</li>
             </ul>
             <p>The words will come from:</p>

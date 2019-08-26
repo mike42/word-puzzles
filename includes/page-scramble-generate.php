@@ -1,4 +1,4 @@
-	<h2><?php echo htmlspecialchars($page_title); ?></h2>
+    <h2><?php echo htmlspecialchars($page_title); ?></h2>
     <form action="scramble.php" method="post">
     <?php
     echo "<div style=\"padding:1em\">";

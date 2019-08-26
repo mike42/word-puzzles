@@ -1,4 +1,4 @@
-	<h2><?php echo htmlspecialchars($page_title); ?></h2>
+    <h2><?php echo htmlspecialchars($page_title); ?></h2>
 <p>Solve this cryptogram:</p>
 <table><tr><td>
 <?php	echo "<div id=\"solution\" class=\"toggle-hidden\">";

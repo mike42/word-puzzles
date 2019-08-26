@@ -1,4 +1,4 @@
-	<h2><?php echo htmlspecialchars($page_title); ?></h2>
+    <h2><?php echo htmlspecialchars($page_title); ?></h2>
 <?php
 use Mike42\WordPuzzles\FindAWord;
 

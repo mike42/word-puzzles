@@ -1,4 +1,4 @@
-	<h2><?php echo htmlspecialchars($page_title); ?></h2>
+    <h2><?php echo htmlspecialchars($page_title); ?></h2>
     <form action="index.php" method="post">
     <?php
     foreach ($find_a_word -> failure as $eek) {
@@ -35,7 +35,7 @@
             echo "<li>".$eek."</li>";
         }
             echo "</ul>Press 'regenerate to try again.</p>";
-}
+    }
 
         echo "<p class=\"gen-time\"><small>Puzzle generated in ".$find_a_word -> calc_time." seconds.</small></p>";
 
@@ -47,12 +47,12 @@
         echo field("diagonal", $req_diagonal);
         echo field("reverse", $req_reverse);
         /* Check-box fields, value indicated by presence/absence */
-if ($req_fast) {
-    echo field("fast", 1);
-}
-if ($req_slow) {
-    echo field("slow", 1);
-} ?>
+    if ($req_fast) {
+        echo field("fast", 1);
+    }
+    if ($req_slow) {
+        echo field("slow", 1);
+    } ?>
         </form>
 <?php function field($field, $value)
 {

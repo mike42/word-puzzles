@@ -2,7 +2,7 @@
 /* Quick class for encoding words with a cipher */
 
 /* As these puzzles are designed to be solved by schoolchildren,
-		I would like to make it clear here that this is not to be used for anything even remotely secret! */
+        I would like to make it clear here that this is not to be used for anything even remotely secret! */
 
 namespace Mike42\WordPuzzles;
 
